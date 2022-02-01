@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,8 +20,14 @@ Route::get('/test', function(){
     return ['message' => 'hello'];
 });
 
-Route::get('/images', function(){
-    $post = Post::create(['title' => 'test_image', 'img_slug' => 'img1-slug']);
+Route::get('/posts', function(){
+    $post = Post::create([
+        'title' => 'test_image', 
+        'image_id' => 'img1-slug', 
+        'image_name'=> '1234', 
+        'img_id' => 'beauty one',
+        'img_slug' => '2221'
+    ]);
     return $post;
 });  
 
