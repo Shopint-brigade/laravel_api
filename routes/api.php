@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function(){
     return ['message' => 'hello'];
 });
+
+Route::get('/images', function(){
+    $post = Post::create(['title' => 'test_image', 'img_slug' => 'img1-slug']);
+    return $post;
+});  
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
